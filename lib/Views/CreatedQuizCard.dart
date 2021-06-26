@@ -88,6 +88,7 @@ class _CreatedQuizCardState extends State<CreatedQuizCard> {
                                   ),
                                   TextButton(
                                     onPressed: () {
+                                      Navigator.of(context).pop();
                                       BlocProvider.of<CreatedQuizBloc>(context)
                                           .add(DeleteQuiz(widget.details));
                                     },
