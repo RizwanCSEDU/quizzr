@@ -11,7 +11,7 @@ class LoadingState extends CreatedQuizState {
 class LoadedCreatedQuizState extends CreatedQuizState {
   List<CustomQuizDetails> details;
 
-  LoadedCreatedQuizState({required this.details}) : super();
+  LoadedCreatedQuizState(this.details) : super();
 }
 
 class ErrorState extends CreatedQuizState {

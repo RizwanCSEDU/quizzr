@@ -7,8 +7,8 @@ class QuizInputState
 
 class ErrorState extends QuizInputState
 {
-  late List<QuizController> controllers;
-  late String title;
+  List<QuizController> controllers;
+  String title;
 
   ErrorState(this.controllers,this.title):super();
 }
@@ -16,8 +16,8 @@ class ErrorState extends QuizInputState
 class LoadFormState extends QuizInputState
 {
 
-  late String title;
-  late List<QuizController> controllers;
+  String title;
+  List<QuizController> controllers;
   LoadFormState(this.controllers,this.title):super();
 }
 
@@ -28,6 +28,6 @@ class LoadingState extends QuizInputState
 
 class SubmittedSuccessfullyState extends QuizInputState
 {
-  late String id;
+  String id;
   SubmittedSuccessfullyState(this.id):super();
 }

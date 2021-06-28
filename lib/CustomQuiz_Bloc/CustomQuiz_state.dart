@@ -18,20 +18,20 @@ class NonExistentQuizState extends CustomQuizState{
 }
 
 class ShowQuestionState extends CustomQuizState {
-  late CustomQuizDetails details;
-  late int score;
-  late int index;
-  late Quiz quiz;
+   CustomQuizDetails details;
+   int score;
+   int index;
+   Quiz quiz;
 
   ShowQuestionState(this.details, this.score, this.index, this.quiz) : super();
 }
 
 class ShowAnswerState extends CustomQuizState {
-  late CustomQuizDetails details;
-  late int score;
-  late int index;
-  late String chosenAnswer;
-  late Quiz quiz;
+   CustomQuizDetails details;
+   int score;
+   int index;
+   String chosenAnswer;
+   Quiz quiz;
 
   ShowAnswerState(
       this.details, this.score, this.index, this.chosenAnswer, this.quiz)

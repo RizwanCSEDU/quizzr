@@ -19,7 +19,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
       }
       try {
         Categories categories = await _api.fetchCategories();
-        yield LoadedCategoriesState(categories: categories);
+        yield LoadedCategoriesState(categories);
       } catch (e) {
         yield ErrorState();
       }

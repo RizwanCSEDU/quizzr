@@ -23,7 +23,7 @@ class CreatedQuizBloc extends Bloc<CreatedQuizEvent, CreatedQuizState> {
           yield NoQuizCreatedState();
         }
         else{
-          yield LoadedCreatedQuizState(details: details);
+          yield LoadedCreatedQuizState(details);
         }
       } catch (e) {
         yield ErrorState();
@@ -37,7 +37,7 @@ class CreatedQuizBloc extends Bloc<CreatedQuizEvent, CreatedQuizState> {
           yield NoQuizCreatedState();
         }
         else{
-          yield LoadedCreatedQuizState(details: details);
+          yield LoadedCreatedQuizState(details);
         }
       }catch(e){
         yield ErrorState();

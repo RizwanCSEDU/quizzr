@@ -6,14 +6,14 @@ class QuizInputEvent
 }
 
 class LoadFormEvent extends QuizInputEvent{
-  late int numberOfQuestions;
-  late String title;
+  int numberOfQuestions;
+  String title;
   LoadFormEvent(this.numberOfQuestions,this.title):super();
 }
 
 class SubmitQuizEvent extends QuizInputEvent{
-  late List<QuizController> controllers;
-  late String title;
+  List<QuizController> controllers;
+  String title;
 
   SubmitQuizEvent(this.controllers,this.title):super();
 }

@@ -15,19 +15,19 @@ class ErrorState extends QuizState {
 
 class ShowQuestionState extends QuizState {
 
-  late int score;
-  late int index;
-  late Quiz quiz;
+   int score;
+   int index;
+   Quiz quiz;
 
   ShowQuestionState(this.score, this.index, this.quiz) : super();
 }
 
 class ShowAnswerState extends QuizState {
 
-  late int score;
-  late int index;
-  late String chosenAnswer;
-  late Quiz quiz;
+   int score;
+   int index;
+   String chosenAnswer;
+   Quiz quiz;
 
   ShowAnswerState(this.score, this.index, this.chosenAnswer, this.quiz)
       : super();

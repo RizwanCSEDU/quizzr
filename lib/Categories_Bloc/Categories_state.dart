@@ -11,7 +11,7 @@ class LoadingState extends CategoriesState {
 class LoadedCategoriesState extends CategoriesState {
   Categories categories;
 
-  LoadedCategoriesState({required this.categories}) : super();
+  LoadedCategoriesState(this.categories) : super();
 }
 
 class ErrorState extends CategoriesState {
