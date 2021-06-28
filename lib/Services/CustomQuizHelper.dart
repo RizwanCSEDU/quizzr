@@ -7,8 +7,13 @@ import 'package:quizzr/Models/Participation.dart';
 import 'package:quizzr/Models/Quiz.dart';
 
 class CustomQuizHelper {
-  final FirebaseFirestore _store = FirebaseFirestore.instance;
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  late final FirebaseFirestore _store;
+  late final FirebaseAuth _auth;
+
+  CustomQuizHelper(){
+    _store = FirebaseFirestore.instance;
+    _auth = FirebaseAuth.instance;
+  }
 
   Future updateParticipation(
       CustomQuizDetails quizDetails, int score, int total) async {
