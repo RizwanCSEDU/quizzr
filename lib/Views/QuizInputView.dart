@@ -202,7 +202,17 @@ class _QuizInputViewState extends State<QuizInputView> {
                       height: (50/812)*MediaQuery.of(context).size.height,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25.0),
-                        color: Colors.blue,
+                        //color: Colors.blue,
+                        gradient: LinearGradient(
+                          //center: Alignment(0.0, 0.0),
+                          //radius: 0.5,
+                          begin: Alignment(1.13, 0.26),
+                          end: Alignment(-0.69, -1.36),
+                          colors: [const Color(0xff0085db), const Color(0xff350857)],
+                          stops: [0.0, 1.0],
+                          //transform: GradientXDTransform(
+                          //1.0, 0.0, 0.0, 1.0, 0.0, 0.0, Alignment(0.0, 0.0)),
+                        ),
                       ),
                       child: Center(
                         child: Text(
@@ -404,7 +414,17 @@ class _QuizInputViewState extends State<QuizInputView> {
                       height: (50/812)*MediaQuery.of(context).size.height,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25.0),
-                        color: Colors.blue,
+                        //color: Colors.blue,
+                        gradient: LinearGradient(
+                          //center: Alignment(0.0, 0.0),
+                          //radius: 0.5,
+                          begin: Alignment(1.13, 0.26),
+                          end: Alignment(-0.69, -1.36),
+                          colors: [const Color(0xff0085db), const Color(0xff350857)],
+                          stops: [0.0, 1.0],
+                          //transform: GradientXDTransform(
+                          //1.0, 0.0, 0.0, 1.0, 0.0, 0.0, Alignment(0.0, 0.0)),
+                        ),
                       ),
                       child: Center(
                         child: Text(

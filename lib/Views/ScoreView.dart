@@ -1,7 +1,6 @@
-import 'package:adobe_xd/gradient_xd_transform.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:quizzr/Views/CategoryView.dart';
+
 
 class ScoreView extends StatefulWidget {
   final int score;
@@ -32,7 +31,7 @@ class _ScoreViewState extends State<ScoreView> {
                   Text(
                     "You Scored",
                     style: TextStyle(
-                        color: Colors.blue[700],
+                        color: Colors.blue[800],
                         fontWeight: FontWeight.bold,
                         fontSize: 50),
                   ),
@@ -52,7 +51,7 @@ class _ScoreViewState extends State<ScoreView> {
                   Text(
                     widget.score.toString() + "/" + widget.total.toString(),
                     style: TextStyle(
-                        color: Colors.blue[700],
+                        color: Colors.blue[800],
                         fontWeight: FontWeight.bold,
                         fontSize: 50),
                   ),
@@ -66,13 +65,15 @@ class _ScoreViewState extends State<ScoreView> {
                         height: (50/812)*MediaQuery.of(context).size.height,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25.0),
-                          gradient: RadialGradient(
-                            center: Alignment(0.0, 0.0),
-                            radius: 0.5,
-                            colors: [const Color(0xf24d88d6), const Color(0xf22b5088)],
+                          gradient: LinearGradient(
+                            //center: Alignment(0.0, 0.0),
+                            //radius: 0.5,
+                            begin: Alignment(1.13, 0.26),
+                            end: Alignment(-0.69, -1.36),
+                            colors: [const Color(0xff0085db), const Color(0xff350857)],
                             stops: [0.0, 1.0],
-                            transform: GradientXDTransform(
-                                1.0, 0.0, 0.0, 1.0, 0.0, 0.0, Alignment(0.0, 0.0)),
+                            //transform: GradientXDTransform(
+                                //1.0, 0.0, 0.0, 1.0, 0.0, 0.0, Alignment(0.0, 0.0)),
                           ),
                         ),
                         child: Center(

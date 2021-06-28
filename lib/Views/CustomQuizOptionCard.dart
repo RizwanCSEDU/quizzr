@@ -1,6 +1,4 @@
 import 'dart:ui';
-
-import 'package:adobe_xd/gradient_xd_transform.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:html_unescape/html_unescape.dart';
@@ -19,7 +17,7 @@ class CustomQuizOptionCard extends StatefulWidget {
 
 class _CustomQuizOptionCardState extends State<CustomQuizOptionCard> {
   bool showAnswer = false;
-  List<Color> colors = [const Color(0xf24d88d6), const Color(0xf22b5088)];
+  List<Color> colors = [const Color(0xff0085db), const Color(0xff350862)];
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +31,11 @@ class _CustomQuizOptionCardState extends State<CustomQuizOptionCard> {
               widget.option == state.chosenAnswer) {
             colors = [const Color(0xedffcd05),const Color(0xedffcd05)];
           } else {
-            colors = [const Color(0xf24d88d6), const Color(0xf22b5088)];
+            colors = [const Color(0xff0085db), const Color(0xff350862)];
           }
         } else {
           showAnswer = false;
-          colors = [const Color(0xf24d88d6), const Color(0xf22b5088)];
+          colors = [const Color(0xff0085db), const Color(0xff350862)];
         }
       },
       child: InkWell(
@@ -48,13 +46,13 @@ class _CustomQuizOptionCardState extends State<CustomQuizOptionCard> {
             duration: Duration(milliseconds: 500),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(40.0)),
-              gradient: RadialGradient(
-                center: Alignment(0.0, 0.0),
-                radius: 0.5,
-                colors: showAnswer ? colors : [const Color(0xf24d88d6), const Color(0xf22b5088)],
+              gradient: LinearGradient(
+                begin: Alignment(1.13, 0.26),
+                end: Alignment(-0.69, -1.36),
+                colors: showAnswer ? colors : [const Color(0xff0085db), const Color(0xff350862)],
                 stops: [0.0, 1.0],
-                transform: GradientXDTransform(
-                    1.0, 0.0, 0.0, 1.0, 0.0, 0.0, Alignment(0.0, 0.0)),
+                //transform: GradientXDTransform(
+                   // 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, Alignment(0.0, 0.0)),
               ),
               border: Border.all(width: 3.0, color: const Color(0xf2f0eeee)),
               //color: showAnswer ? color : Colors.blue,

@@ -1,4 +1,3 @@
-import 'package:adobe_xd/gradient_xd_transform.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +18,7 @@ class OptionCard extends StatefulWidget {
 class _OptionCardState extends State<OptionCard> {
   bool showAnswer = false;
   //Color color = Colors.blue;
-  List<Color> colors = [const Color(0xf24d88d6), const Color(0xf22b5088)];
+  List<Color> colors = [const Color(0xff0085db), const Color(0xff350862)];
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +33,12 @@ class _OptionCardState extends State<OptionCard> {
             colors = [Colors.red,Colors.red];
           } else {
             //color = Colors.blue;
-            colors= [const Color(0xf24d88d6), const Color(0xf22b5088)];
+            colors= [const Color(0xff0085db), const Color(0xff350862)];
           }
         } else {
           showAnswer = false;
           //color = Colors.blue;
-          colors= [const Color(0xf24d88d6), const Color(0xf22b5088)];
+          colors= [const Color(0xff0085db), const Color(0xff350862)];
         }
       },
       child: InkWell(
@@ -51,13 +50,15 @@ class _OptionCardState extends State<OptionCard> {
             duration: Duration(milliseconds: 500),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(40.0)),
-              gradient: RadialGradient(
-                center: Alignment(0.0, 0.0),
-                radius: 0.5,
-                colors: showAnswer ? colors : [const Color(0xf24d88d6), const Color(0xf22b5088)],
+              gradient: LinearGradient(
+                //center: Alignment(0.0, 0.0),
+                //radius: 0.5,
+                begin: Alignment(1.13, 0.26),
+                end: Alignment(-0.69, -1.36),
+                colors: showAnswer ? colors : [const Color(0xff0085db), const Color(0xff350862)],
                 stops: [0.0, 1.0],
-                transform: GradientXDTransform(
-                    1.0, 0.0, 0.0, 1.0, 0.0, 0.0, Alignment(0.0, 0.0)),
+                //transform: GradientXDTransform(
+                  //  1.0, 0.0, 0.0, 1.0, 0.0, 0.0, Alignment(0.0, 0.0)),
               ),
               border: Border.all(width: 3.0, color: const Color(0xf2f0eeee)),
               //color: showAnswer ? color : Colors.blue,

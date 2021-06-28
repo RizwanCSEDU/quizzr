@@ -29,7 +29,7 @@ class _CategoryCardState extends State<CategoryCard> {
               gradient: RadialGradient(
                 center: Alignment(0.0, 0.0),
                 radius: 0.5,
-                colors: [const Color(0xf25b66cd), const Color(0xf2402a5d)],
+                colors: [const Color(0xff350865), const Color(0xff0085db)],
                 stops: [0.0, 1.0],
                 transform: GradientXDTransform(
                     1.0, 0.0, 0.0, 1.0, 0.0, 0.0, Alignment(0.0, 0.0)),
