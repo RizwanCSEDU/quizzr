@@ -1,8 +1,8 @@
-import 'package:adobe_xd/gradient_xd_transform.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:quizzr/Models/Participation.dart';
+import 'package:quizzr/Views/ShowAnswerView.dart';
 
 class CustomQuizParticipationCard extends StatefulWidget{
   final Participation participationDetails;
@@ -102,6 +102,19 @@ class _CustomQuizParticipationCardState extends State<CustomQuizParticipationCar
                         fontWeight: FontWeight.w500,
                         fontSize: 18),
                   ),
+                  SizedBox(height: (20/812)*MediaQuery.of(context).size.height,),
+                  GestureDetector(
+                    child: Text(
+                      "Show Answer",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ShowAnswerView(widget.participationDetails.quizDetails.id)));
+                    },
+                  )
                 ],
               )
             ),

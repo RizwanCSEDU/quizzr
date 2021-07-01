@@ -16,7 +16,6 @@ class CategoryView extends StatefulWidget {
 }
 
 class _CategoryViewState extends State<CategoryView> {
-
   @override
   void initState() {
     BlocProvider.of<CategoriesBloc>(context).add(LoadCategoriesEvent());
@@ -60,7 +59,11 @@ class _CategoryViewState extends State<CategoryView> {
                 children: <Widget>[
                   new Expanded(
                       child: new ListView.separated(
-                    padding: EdgeInsets.symmetric(horizontal: (5/375)*MediaQuery.of(context).size.width,vertical: (5/812)*MediaQuery.of(context).size.height),
+                    padding: EdgeInsets.symmetric(
+                        horizontal:
+                            (5 / 375) * MediaQuery.of(context).size.width,
+                        vertical:
+                            (5 / 812) * MediaQuery.of(context).size.height),
                     itemCount: state.categories.triviaCategories.length,
                     itemBuilder: (BuildContext context, int index) {
                       return new CategoryCard(
@@ -68,136 +71,147 @@ class _CategoryViewState extends State<CategoryView> {
                     },
                     separatorBuilder: (BuildContext context, int index) =>
                         SizedBox(
-                      height: (20/812)*MediaQuery.of(context).size.height,
+                      height: (20 / 812) * MediaQuery.of(context).size.height,
                     ),
                   )),
                 ]);
           } else {
             return Center(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: (10/375)*MediaQuery.of(context).size.width),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: (30/812)*MediaQuery.of(context).size.height,
-                      ),
-                      SizedBox(
-                        height: (200/812)*MediaQuery.of(context).size.height,
-                        child: new Image.asset(
-                          "images/error.png",
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      SizedBox(
-                        height: (70/812)*MediaQuery.of(context).size.height,
-                      ),
-                      FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          "Ooops!",
-                          style: TextStyle(
-                              color: Colors.red,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 38),
-                        ),
-                      ),
-                      SizedBox(
-                        height: (50/812)*MediaQuery.of(context).size.height,
-                      ),
-                      FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          "There was an error!",
-                          style: TextStyle(
-                              color: Colors.red,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18),
-                        ),
-                      ),
-                      FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          "Make sure you're connected to the internet",
-                          style: TextStyle(
-                              color: Colors.red,
-                              fontWeight: FontWeight.w300,
-                              fontSize: 18),
-                        ),
-                      ),
-                      SizedBox(
-                        height: (130/812)*MediaQuery.of(context).size.height,
-                      ),
-                      TextButton(
-                          onPressed: () {
-                            BlocProvider.of<CategoriesBloc>(context)
-                                .add(LoadCategoriesEvent());
-                          },
-                          child: Text(
-                            "Retry",
-                            style: TextStyle(color: Colors.red, fontSize: 20),
-                          )),
-                    ],
+              padding: EdgeInsets.symmetric(
+                  horizontal: (10 / 375) * MediaQuery.of(context).size.width),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: (30 / 812) * MediaQuery.of(context).size.height,
                   ),
-                ));
-
+                  SizedBox(
+                    height: (200 / 812) * MediaQuery.of(context).size.height,
+                    child: new Image.asset(
+                      "images/error.png",
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  SizedBox(
+                    height: (70 / 812) * MediaQuery.of(context).size.height,
+                  ),
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      "Ooops!",
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 38),
+                    ),
+                  ),
+                  SizedBox(
+                    height: (50 / 812) * MediaQuery.of(context).size.height,
+                  ),
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      "There was an error!",
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18),
+                    ),
+                  ),
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      "Make sure you're connected to the internet",
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.w300,
+                          fontSize: 18),
+                    ),
+                  ),
+                  SizedBox(
+                    height: (130 / 812) * MediaQuery.of(context).size.height,
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        BlocProvider.of<CategoriesBloc>(context)
+                            .add(LoadCategoriesEvent());
+                      },
+                      child: Text(
+                        "Retry",
+                        style: TextStyle(color: Colors.red, fontSize: 20),
+                      )),
+                ],
+              ),
+            ));
           }
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-            showModalBottomSheet(
-                context: context,
-                builder: (BuildContext context){
-                  return Container(
-                    height: MediaQuery.of(context).copyWith().size.height * 0.15,
-                    child: ListView(
-                      children: [
-                        TextButton(
-                          onPressed:(){
+        onPressed: () {
+          showModalBottomSheet(
+              context: context,
+              builder: (BuildContext context) {
+                return Container(
+                  height: MediaQuery.of(context).copyWith().size.height * 0.15,
+                  child: ListView(
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                          showModalBottomSheet(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Container(
+                                  height: MediaQuery.of(context)
+                                          .copyWith()
+                                          .size
+                                          .height *
+                                      0.4,
+                                  child: InitialQuizInputView(),
+                                );
+                              });
+                        },
+                        child: Text("Create Quiz",
+                            style: TextStyle(color: Colors.blue, fontSize: 15)),
+                      ),
+                      TextButton(
+                          onPressed: () {
                             Navigator.of(context).pop();
-                            showModalBottomSheet(context: context,
-                                builder:(BuildContext context){
+                            showModalBottomSheet(
+                                context: context,
+                                builder: (BuildContext context) {
                                   return Container(
-                                    height: MediaQuery.of(context).copyWith().size.height * 0.4,
-                                    child: InitialQuizInputView(),
+                                    height: MediaQuery.of(context)
+                                            .copyWith()
+                                            .size
+                                            .height *
+                                        0.25,
+                                    child: TakeQuizView(),
                                   );
-                                }
-                            );
-                          } ,
-                          child: Text("Create Quiz",style: TextStyle(color: Colors.blue, fontSize: 15)),
-                        ),
-                        TextButton(
-                            onPressed:(){
-                              Navigator.of(context).pop();
-                              showModalBottomSheet(context: context,
-                                  builder:(BuildContext context){
-                                    return Container(
-                                        height: MediaQuery.of(context).copyWith().size.height * 0.25,
-                                        child: TakeQuizView(),
-                                    );
-                                  }
-                              );
-                            } ,
-                            child: Text("Take Quiz",style: TextStyle(color: Colors.blue, fontSize: 15))),
-                      ],
-                    ),
-                  );
-                }
-            );
+                                });
+                          },
+                          child: Text("Take Quiz",
+                              style:
+                                  TextStyle(color: Colors.blue, fontSize: 15))),
+                    ],
+                  ),
+                );
+              });
         },
-        child:Icon(Icons.add) ,
+        child: Icon(Icons.add),
         backgroundColor: Colors.green,
       ),
       drawer: Drawer(
         child: ListView(
-          padding: EdgeInsets.only(top: (65/812)*MediaQuery.of(context).size.height),
+          padding: EdgeInsets.only(
+              top: (65 / 812) * MediaQuery.of(context).size.height),
           children: <Widget>[
             ListTile(
               title: Row(
                 children: [
                   Icon(Icons.list_alt_rounded),
                   SizedBox(
-                    width: (10/375)*MediaQuery.of(context).size.width,
+                    width: (10 / 375) * MediaQuery.of(context).size.width,
                   ),
                   Text(
                     "See Created Quiz",
@@ -210,10 +224,8 @@ class _CategoryViewState extends State<CategoryView> {
               ),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => CreatedQuizView()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CreatedQuizView()));
               },
             ),
             ListTile(
@@ -221,7 +233,7 @@ class _CategoryViewState extends State<CategoryView> {
                 children: [
                   Icon(Icons.list_alt_rounded),
                   SizedBox(
-                    width: (10/375)*MediaQuery.of(context).size.width,
+                    width: (10 / 375) * MediaQuery.of(context).size.width,
                   ),
                   Text(
                     "See Participation Record",
@@ -232,7 +244,7 @@ class _CategoryViewState extends State<CategoryView> {
                   ),
                 ],
               ),
-              onTap: (){
+              onTap: () {
                 Navigator.of(context).pop();
                 Navigator.push(
                     context,

@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:quizzr/Services/CustomQuizHelper.dart';
+import 'package:quizzr/ShowAnswer_Bloc/ShowAnswer_bloc.dart';
 import 'CustomQuizParticipation_Bloc/CustomQuizParticipation_bloc.dart';
 import 'Views/AuthenticateView.dart';
 
@@ -69,6 +70,10 @@ void main() async
           BlocProvider<CustomQuizParticipationBloc>(
               lazy: false,
               create: (context)=>CustomQuizParticipationBloc(context.read<CustomQuizHelper>())
+          ),
+          BlocProvider<ShowAnswerBloc>(
+            lazy: false,
+            create: (context)=> ShowAnswerBloc(context.read<CustomQuizHelper>()),
           ),
 
         ],
