@@ -65,28 +65,26 @@ class _CustomQuizParticipationCardState extends State<CustomQuizParticipationCar
                             showModalBottomSheet(
                                 context: context,
                                 builder: (BuildContext context) {
-                                  return Container(
-                                    height: MediaQuery.of(context)
-                                        .copyWith()
-                                        .size
-                                        .height *
-                                        0.10,
-                                    child: Column(children: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                          Clipboard.setData(
-                                              ClipboardData(text: widget.participationDetails.quizDetails.id));
-                                          ScaffoldMessenger.of(context).showSnackBar(
-                                              SnackBar(
-                                                  content: Text('Copied quiz code')));
-                                        },
-                                        child: Text("Copy Quiz Code",
-                                            style: TextStyle(
-                                                color: Colors.blue, fontSize: 15)),
-                                      ),
-                                    ]),
-                                  );
+                                  return Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                            Clipboard.setData(
+                                                ClipboardData(text: widget.participationDetails.quizDetails.id));
+                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                SnackBar(
+                                                    content: Text('Copied quiz code')));
+                                          },
+                                          child: FittedBox(
+                                            fit: BoxFit.scaleDown,
+                                            child: Text("Copy Quiz Code",
+                                                style: TextStyle(
+                                                    color: Colors.blue, fontSize: 15)),
+                                          ),
+                                        ),
+                                      ]);
                                 });
                           },
                           icon: Icon(

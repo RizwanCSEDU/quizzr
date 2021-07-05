@@ -150,53 +150,50 @@ class _CategoryViewState extends State<CategoryView> {
         onPressed: () {
           showModalBottomSheet(
               context: context,
-              builder: (BuildContext context) {
-                return Container(
-                  height: MediaQuery.of(context).copyWith().size.height * 0.15,
-                  child: ListView(
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                          showModalBottomSheet(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return Container(
-                                  height: MediaQuery.of(context)
-                                          .copyWith()
-                                          .size
-                                          .height *
-                                      0.4,
-                                  child: InitialQuizInputView(),
-                                );
-                              });
-                        },
-                        child: Text("Create Quiz",
-                            style: TextStyle(color: Colors.blue, fontSize: 15)),
-                      ),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                            showModalBottomSheet(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return Container(
-                                    height: MediaQuery.of(context)
-                                            .copyWith()
-                                            .size
-                                            .height *
-                                        0.25,
-                                    child: TakeQuizView(),
-                                  );
-                                });
-                          },
-                          child: Text("Take Quiz",
-                              style:
-                                  TextStyle(color: Colors.blue, fontSize: 15))),
-                    ],
-                  ),
+              builder: (BuildContext context){
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    TextButton(
+                      onPressed:(){
+                        Navigator.of(context).pop();
+                        showModalBottomSheet(context: context,
+                            isScrollControlled: true,
+                            builder:(BuildContext context){
+                              return Container(
+                                padding: EdgeInsets.only(
+                                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                                ),
+
+                                child: InitialQuizInputView(),
+                              );
+                            }
+                        );
+                      } ,
+                      child: FittedBox(fit: BoxFit.scaleDown,child: Text("Create Quiz",style: TextStyle(color: Colors.blue, fontSize: 15)),),
+                    ),
+                    TextButton(
+                      onPressed:(){
+                        Navigator.of(context).pop();
+                        showModalBottomSheet(context: context,
+                            isScrollControlled: true,
+                            builder:(BuildContext context){
+                              return Container(
+                                padding: EdgeInsets.only(
+                                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                                ),
+
+                                child: TakeQuizView(),
+                              );
+                            }
+                        );
+                      } ,
+                      child: FittedBox(fit: BoxFit.scaleDown,child: Text("Take Quiz",style: TextStyle(color: Colors.blue, fontSize: 15)),),
+                    ),
+                  ],
                 );
-              });
+              }
+          );
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.green,

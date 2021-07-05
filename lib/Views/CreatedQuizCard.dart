@@ -1,4 +1,3 @@
-import 'package:adobe_xd/gradient_xd_transform.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -66,38 +65,39 @@ class _CreatedQuizCardState extends State<CreatedQuizCard> {
                         showModalBottomSheet(
                             context: context,
                             builder: (BuildContext context) {
-                              return Container(
-                                height: MediaQuery.of(context)
-                                        .copyWith()
-                                        .size
-                                        .height *
-                                    0.15,
-                                child: ListView(children: [
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                      Clipboard.setData(
-                                          ClipboardData(text: widget.details.id));
-                                      ScaffoldMessenger.of(context).showSnackBar(
-                                          SnackBar(
-                                              content: Text('Copied quiz code')));
-                                    },
-                                    child: Text("Copy Quiz Code",
-                                        style: TextStyle(
-                                            color: Colors.blue[700], fontSize: 15)),
-                                  ),
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                      BlocProvider.of<CreatedQuizBloc>(context)
-                                          .add(DeleteQuiz(widget.details));
-                                    },
-                                    child: Text("Delete Quiz",
-                                        style: TextStyle(
-                                            color: Colors.blue[700], fontSize: 15)),
-                                  ),
-                                ]),
-                              );
+                              return Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                        Clipboard.setData(
+                                            ClipboardData(text: widget.details.id));
+                                        ScaffoldMessenger.of(context).showSnackBar(
+                                            SnackBar(
+                                                content: Text('Copied quiz code')));
+                                      },
+                                      child: FittedBox(
+                                        fit: BoxFit.scaleDown,
+                                        child: Text("Copy Quiz Code",
+                                            style: TextStyle(
+                                                color: Colors.blue, fontSize: 15)),
+                                      ),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                        BlocProvider.of<CreatedQuizBloc>(context)
+                                            .add(DeleteQuiz(widget.details));
+                                      },
+                                      child: FittedBox(
+                                        fit: BoxFit.scaleDown,
+                                        child: Text("Delete Quiz",
+                                            style: TextStyle(
+                                                color: Colors.blue, fontSize: 15)),
+                                      ),
+                                    ),
+                                  ]);
                             });
                       },
                       icon: Icon(

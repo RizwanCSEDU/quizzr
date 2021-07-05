@@ -13,25 +13,28 @@ class _TakeQuizViewState extends State<TakeQuizView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          title: Text("Take Quiz",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25)),
-          elevation: 0,
-          iconTheme: new IconThemeData(color: Colors.black),
-          brightness: Brightness.light,
-          leading: IconButton(
-            icon: Icon(Icons.close),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-          actions: [
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Row(
+          children: [
+            IconButton(
+              icon: Icon(Icons.close),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            Spacer(),
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child:Text("Take Quiz",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25)
+              ),
+            ),
+            Spacer(),
             TextButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate() == true) {
@@ -42,41 +45,32 @@ class _TakeQuizViewState extends State<TakeQuizView> {
                             builder: (context) => CustomQuizView(codeController.text.toString())));
                   }
                 },
-                child: Text("Take"))
+                child: Text("Take")),
           ],
         ),
-        body: ListView(
-          padding: EdgeInsets.symmetric(vertical: (20/812)*MediaQuery.of(context).size.height),
-          children: [
-            Center(
-                child: Padding(
-                  padding: EdgeInsets.only(left: (20/375)*MediaQuery.of(context).size.width, right: (20/375)*MediaQuery.of(context).size.width, top: (50/812)*MediaQuery.of(context).size.height),
-                  child: Column(
-                    children: [
-                      Form(
-                        key: _formKey,
-                        child: TextFormField(
-                          autofocus: true,
-                          controller:codeController ,
-                          validator: (val) {
-                            if (val != null) {
-                              return val.isEmpty ? "This field can't be empty." : null;
-                            }
-                          },
-                          decoration: InputDecoration(
-                            hintText: "Enter Code",
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(25.0),
-                              borderSide: BorderSide(),
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: (20/375)*MediaQuery.of(context).size.width,vertical: (10/812)*MediaQuery.of(context).size.height),
+          child: Form(
+              key: _formKey,
+              child: TextFormField(
+                autofocus: true,
+                controller:codeController ,
+                validator: (val) {
+                  if (val != null) {
+                    return val.isEmpty ? "This field can't be empty." : null;
+                  }
+                },
+                decoration: InputDecoration(
+                  hintText: "Enter Code",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                    borderSide: BorderSide(),
                   ),
-                )),
-          ],
+                ),
+              )
+          ),
         )
+      ],
     );
   }
 }
