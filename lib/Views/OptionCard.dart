@@ -17,7 +17,6 @@ class OptionCard extends StatefulWidget {
 
 class _OptionCardState extends State<OptionCard> {
   bool showAnswer = false;
-  //Color color = Colors.blue;
   List<Color> colors = [const Color(0xff0085db), const Color(0xff350862)];
 
   @override
@@ -32,12 +31,10 @@ class _OptionCardState extends State<OptionCard> {
               widget.option == state.chosenAnswer) {
             colors = [Colors.red,Colors.red];
           } else {
-            //color = Colors.blue;
             colors= [const Color(0xff0085db), const Color(0xff350862)];
           }
         } else {
           showAnswer = false;
-          //color = Colors.blue;
           colors= [const Color(0xff0085db), const Color(0xff350862)];
         }
       },
@@ -51,17 +48,12 @@ class _OptionCardState extends State<OptionCard> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(40.0)),
               gradient: LinearGradient(
-                //center: Alignment(0.0, 0.0),
-                //radius: 0.5,
                 begin: Alignment(1.13, 0.26),
                 end: Alignment(-0.69, -1.36),
                 colors: showAnswer ? colors : [const Color(0xff0085db), const Color(0xff350862)],
                 stops: [0.0, 1.0],
-                //transform: GradientXDTransform(
-                  //  1.0, 0.0, 0.0, 1.0, 0.0, 0.0, Alignment(0.0, 0.0)),
               ),
               border: Border.all(width: 3.0, color: const Color(0xf2f0eeee)),
-              //color: showAnswer ? color : Colors.blue,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
